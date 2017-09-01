@@ -35,9 +35,4 @@ class HistoryService(object):
     def saveHistory(self, userId):
         pg = PageUtil.PageUtil()
         result = {}
-        pageIndex = pg.getPageIndex(page, size)
-        pageSize = pg.getPageSize(page, size)
-        rows = self.historyDao.selectHistoryList(pageIndex, pageSize)
-        result['rows'] = rows
-        response = ResponseUtil.ResponseUtil.getResponse(0, result)
-        return json.dumps(rows)
+        return json.dumps("")
