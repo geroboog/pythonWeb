@@ -14,14 +14,25 @@ class MysqlUtil(object):
         self.cursor = self.connect.cursor()
 
     def getSqlData(self, sql):
-        self.cursor.execute(sql)
-        rows = self.cursor.fetchall()
-        self.closeConnection()
-        return rows
+        try:
+            self.cursor.execute(sql)
+            rows = self.cursor.fetchall()
+            return rows
+        except Exception as err:
+            print(err)
+            return False
+        finally:
+            self.closeConnection()
 
     def insertSqlData(self, sql):
-        self.cursor.execute(sql)
-        return False
+        try:
+            self.cursor.execute(sql)
+            return True
+        except Exception as err:
+            print(err)
+            return False
+        finally:
+            self.closeConnection()
 
     def closeConnection(self):
         self.cursor.close()

@@ -39,8 +39,9 @@ def getHistoryList():
     result = historyObj.getHistoryList(page, size)
     return result
 
+
 @app.route('/history/saveHistory', methods=['POST'])
-def getHistoryList():
+def saveHistory():
     a = request.get_data()
     jsonData = json.loads(a.decode("utf-8"))
     userId = jsonData['userId']

@@ -34,5 +34,13 @@ class HistoryService(object):
 
     def saveHistory(self, userId):
         pg = PageUtil.PageUtil()
+        historyObj = {}
         result = {}
+        historyObj['user_id'] = userId
+        historyObj['text'] = "xx"
+        historyObj['sql_item'] = "[1,2]"
+        historyObj['gmt_create'] = "11111"
+        historyObj['gmt_modified'] = "11111"
+
+        self.historyDao.insertHistory(historyObj)
         return json.dumps("")
