@@ -1,5 +1,4 @@
 import json
-
 from controller import controllers
 from flask import request
 from service import HistoryService
