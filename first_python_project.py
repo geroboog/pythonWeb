@@ -1,5 +1,6 @@
 import json
-from flask import Flask
+from flask import Flask, render_template
+
 from flask import request
 from service import NewService
 from service import HistoryService
@@ -9,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    return render_template('index.html')
 
 
 @app.route('/news')
@@ -50,10 +51,9 @@ def saveHistory():
     return result
 
 
-@app.route('/about')
+@app.route('/test')
 def about():
-    return 'The about page'
-
+    return app.send_static_file('index.html')
 
 if __name__ == '__main__':
     app.debug = True
