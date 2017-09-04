@@ -15,7 +15,6 @@ class RedisUtil(Singleton):
 
     def hmget(self, keyStr, nameStr):
         valueObj = self.redisClient.keys(keyStr)
-        result = [];
         if not valueObj:
             return None
         else:
@@ -23,5 +22,5 @@ class RedisUtil(Singleton):
 
 
 r = RedisUtil()
-result = r.hmget("22", "")
+result = r.hmget("22", {"id", "name"})
 print(result)
