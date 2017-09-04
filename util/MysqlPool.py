@@ -3,16 +3,7 @@
 import pymysql
 from DBUtils.PooledDB import PooledDB
 
-
-class Singleton(object):
-    __instance = None
-
-    def __init__(self): pass
-
-    def __new__(cls):
-        if Singleton.__instance is None:
-            Singleton.__instance = object.__new__(cls)
-        return Singleton.__instance
+from util.Singleton import Singleton
 
 
 class MysqlPool(Singleton):

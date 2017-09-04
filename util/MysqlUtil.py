@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # 安装 MYSQL DB for python
-from util import MysqlPool
+from util.MysqlPool import MysqlPool
 from util.ClockUtil import ClockUtil
 
 
@@ -11,7 +11,10 @@ class MysqlUtil(object):
     connectionPool = []
 
     def __init__(self):
-        self.connect = MysqlPool.MysqlPool.pool.connection()  # 以后每次需要数据库连接就是用connection（）函数获取连接就好了
+        self.connect = MysqlPool.pool.connection()  # 以后每次需要数据库连接就是用connection（）函数获取连接就好了
+        b = 0
+        MysqlPool.b += 1
+        print(MysqlPool.b)
         self.cursor = self.connect.cursor()
 
     def getSqlData(self, sql):

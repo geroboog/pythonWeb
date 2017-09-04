@@ -1,22 +1,27 @@
 import redis
 import time
+from util.Singleton import Singleton
 
-start = time.clock()
 
-redisClient = redis.StrictRedis(host='localhost', port=6379, db=0, password='')
-f = open('result.txt', 'r')
-while True:
-    line = f.readline()
-    if not line:
-        break
-    lines = line.replace("\n", "").replace("\r\n", "").split("----")
-    redisClient.hset(lines[0], "id", lines[0])
-    redisClient.hset(lines[0], "name", lines[1])
-    redisClient.hset(lines[0], "password", lines[2])
-    redisClient.hset(lines[0], "email", lines[3])
-    redisClient.hset(lines[0], "phone", lines[4])
-f.close()
+class RedisUtil(Singleton):
+    redisClient = redis.StrictRedis(host='localhost', port=6379, db=0, password='')
 
-end = time.clock()
+    def getKey(self, keyStr):
+        valueObj = self.redisClient.keys(keyStr)
+        if not valueObj:
+            return None
+        else:
+            return self.redisClient.get(keyStr)
 
-print("used:", end - start)
+    def hmget(self, keyStr, nameStr):
+        valueObj = self.redisClient.keys(keyStr)
+        result = [];
+        if not valueObj:
+            return None
+        else:
+            return self.redisClient.hmget(keyStr, nameStr)
+
+
+r = RedisUtil()
+result = r.hmget("22", "")
+print(result)
