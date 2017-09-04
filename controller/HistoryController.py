@@ -1,12 +1,9 @@
 import json
-from flask import Flask, render_template
 
 from controller import controllers
 from flask import request
 from service import HistoryService
 from util.ClockUtil import ClockUtil
-
-app = Flask(__name__)
 
 
 @controllers.route('/history')

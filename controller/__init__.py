@@ -8,4 +8,5 @@ controllers = Blueprint('controllers',
 
 import controller.views
 import controller.HistoryController
+import controller.NewController
 
