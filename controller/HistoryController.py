@@ -1,60 +1,41 @@
 import json
 from flask import Flask, render_template
 
+from controller import controllers
 from flask import request
-from service import NewService
 from service import HistoryService
+from util.ClockUtil import ClockUtil
 
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello_world():
-    return render_template('index.html')
-
-
-@app.route('/news')
-def news():
-    return 'The project page'
-
-
-@app.route('/news/getNewsById/<newsId>', methods=['GET', 'POST'])
-def getNewsById(newsId):
-    news = NewService.NewService(newsId)
-    result = news.getNewsById()
-    return result
-
-
-@app.route('/history')
+@controllers.route('/history')
 def history():
     return 'The history page'
 
 
-@app.route('/history/getHistoryList', methods=['POST'])
+@controllers.route('/history/getHistoryList', methods=['POST'])
 def getHistoryList():
+    cu = ClockUtil()
+    cu.getStartTime()
     a = request.get_data()
     jsonData = json.loads(a.decode("utf-8"))
     page = jsonData['page']
     size = jsonData['size']
     historyObj = HistoryService.HistoryService()
     result = historyObj.getHistoryList(page, size)
+    cu.printTime()
     return result
 
 
-@app.route('/history/saveHistory', methods=['POST'])
+@controllers.route('/history/saveHistory', methods=['POST'])
 def saveHistory():
+    cu = ClockUtil()
+    cu.getStartTime()
     a = request.get_data()
     jsonData = json.loads(a.decode("utf-8"))
     userId = jsonData['userId']
     historyObj = HistoryService.HistoryService()
     result = historyObj.saveHistory(userId)
+    cu.printTime()
     return result
-
-
-@app.route('/test')
-def about():
-    return app.send_static_file('index.html')
-
-if __name__ == '__main__':
-    app.debug = True
-    app.run()  # app.run(host='0.0.0.0')

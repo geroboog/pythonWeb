@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js实现路由</title>
+    <link rel="stylesheet" href="static/css/style.css" type="text/css" />
+</head>
+<body>
+<a href=" ">white</a>
+<a href="#/green">green</a>
+<a href="#/blue" >blue</a>
+<a href="#/yellow" >yellow</a>
+</body>
+</html>
+
+<script>
+
+    function Route() {
+    }
+    Route.prototype.open = function (route, callback) {
+        var arr = {};
+        arr[route] = callback;
+
+        window.addEventListener('hashchange', function () {
+            var temp = window.location.hash;
+            for (var i in arr) {
+                if (i == temp.slice(1, temp.length)) {
+                    arr[i]();
+                }
+            }
+        })
+    }
+    window.Route = new Route();
+
+
+    function change(color) {
+        var body = document.getElementsByTagName('body')[0];
+        body.style.backgroundColor = color;
+        console.log(color);
+    }
+
+    Route.open('/', function () {
+        change('');
+    });
+    Route.open('/green', function () {
+        change('green');
+    });
+    Route.open('/blue', function () {
+        change('blue');
+    });
+    Route.open('/yellow', function () {
+        change('yellow');
+    });
+
+</script>
