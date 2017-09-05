@@ -1,5 +1,7 @@
 import redis
 import time
+import pickle
+
 from util.Singleton import Singleton
 
 
@@ -11,7 +13,7 @@ class RedisUtil(Singleton):
         if not valueObj:
             return None
         else:
-            return self.redisClient.get(keyStr)
+            return pickle.loads(self.redisClient.get(keyStr))
 
     def hmget(self, keyStr, nameStr):
         valueObj = self.redisClient.keys(keyStr)
@@ -20,7 +22,19 @@ class RedisUtil(Singleton):
         else:
             return self.redisClient.hmget(keyStr, nameStr)
 
+    def setKey(self, keyStr, value):
+        self.redisClient.set(keyStr, pickle.dumps(value), 180)
 
-r = RedisUtil()
-result = r.hmget("22", {"id", "name"})
-print(result)
+
+def CheckRedis(sql):
+    sql = "sql:"+sql
+    return RedisUtil().getKey(sql)
+
+
+def SaveRedis(sql, value):
+    sql = "sql:"+sql
+    RedisUtil().setKey(sql, value)
+
+# r = RedisUtil()
+# result = r.hmget("22", {"id", "name"})
+# print(result)
