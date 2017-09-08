@@ -1,0 +1,87 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/media.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/component.css" />
+    <script src="/static/js/modernizr.min.js"></script>
+</head>
+<body class="main">
+    <div class="top">
+        <div class="top_content">
+            <div class="search">
+                <div class="search_border">
+                     <input type="text" id="search" class="search_input" value="语音搜索平台" onkeydown="keyPress()"  onclick="checkText(this)"/>
+                </div>
+                <a id="search_button" class="search_button" onclick="getTextDataList()" >
+                    <span>查询</span>
+                </a>
+            </div>
+            <div class="two_d_code_area">
+                <canvas id="qrcode-canvas" class="qrcode-canvas"></canvas>
+                <svg id="qrcode-svg" style="width:2rem; height:2rem; padding:1em; background-color:#E8E8E8">
+                    <rect width="100%" height="100%" fill="#FFFFFF" stroke-width="0"></rect>
+                    <path d="" fill="#000000" stroke-width="0"></path>
+                </svg>
+                <span>扫码登录</span>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content_box">
+            <div class="left">
+                <div class="history-listbox">
+                    <ul class="history-list">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="right" id="right">
+                <div class="right_content">
+                    <div class="history_img_box" id="history_img_box">
+                    </div>
+                    <div class="main_chart_box" id="main_chart_box">
+                        <div id="right_title" class="right_title"><p><span></span></p></div>
+                        <div id="main_chart" class="main_chart">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input id="count" type="hidden" value=""/>
+    <input id="control" type="hidden" value=""/>
+    <div class="bottom">
+        版权归广州时代数据服务有限公司所有
+    </div>
+    <div id="bg"></div>
+    <div id="right_box" class="right_box" >
+        <div class="main_chart_title_box">
+            <div id="main_chart_title" class="main_chart_title"></div>
+            <a href="javascript:" class="main_chart_close" onclick="return mainChartClose();"><img src="/static/img/icon_close.png"/></a>
+        </div>
+        <div id="right_box_content" class="right_box_content"></div>
+        <!--<div class="wrap clearfix">-->
+            <!--<div class="dotstyle dotstyle-fillup">-->
+                <!--<ul>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+    <script src="/static/js/echarts.js"></script>
+    <script src="/static/js/jquery-3.1.1.js"></script>
+    <script src="/static/js/media.js"></script>
+    <script src="/static/js/DataLazyLoad.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
+    <script src="/static/js/qrcodegen.js"></script>
+    <script src="/static/js/qrcodegen-demo.js"></script>
+    <script src="/static/js/sockjs.min.js"></script>
+    <script src="/static/js/ajax.js"></script>
+    <script src="/static/js/showCharts.js"></script>
+    <script src="/static/js/historyData.js"></script>
+    <script src="/static/js/websocket-demo.js"></script>
+    <script src="/static/js/main.js"></script>
+    <!--<script src="/static/js/dots.js"></script>-->
+</body>
+</html>

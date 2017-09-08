@@ -1,6 +1,6 @@
 from flask import Flask
 from controller import controllers
-
+# from flask_socketio import SocketIO, emit
 
 apple = Flask(__name__,
               template_folder='templates',  # 指定模板路径，可以是相对路径，也可以是绝对路径。
@@ -9,6 +9,14 @@ apple = Flask(__name__,
               )
 apple.register_blueprint(controllers)  # 注册controller蓝图，并没有指定前缀。
 # apple.register_blueprint(user)      #注册user蓝图，没有指定前缀。
+# apple.config['SECRET_KEY'] = 'secret!'
+# socketio = SocketIO(apple)
+#
+#
+# @socketio.on('connect', namespace='/test2')
+# def test_connect():
+#     emit('connect', 'xxxxxxxxxx')
+
 
 if __name__ == '__main__':
     apple.run(host='127.0.0.1', port=5000, debug=True)  # 运行flask http程序，host指定监听IP，port指定监听端口，调试时需要开启debug模式。

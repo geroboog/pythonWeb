@@ -6,6 +6,7 @@ from util.ClockUtil import ClockUtil
 from util.RedisUtil import *
 
 
+
 @controllers.route('/history')
 def history():
     return 'The history page'

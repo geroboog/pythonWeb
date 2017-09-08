@@ -1,3 +1,380 @@
+@font-face {
+    font-family: 'PingFang SC';   /*字体名称*/
+    src: url('PINGFANG MEDIUM.ttf');       /*字体源文件*/
+}
 html{
-    font-size: 30px;
+    font-size: 36px;
+    font-family: PingFang SC;
+}
+body {
+    background-color: #ffffff;
+    margin:0px;
+}
+li{
+    list-style-type:none;
+}
+a{
+    font-size: 0.45rem;
+    text-decoration:none;
+    color:rgb(51,51,51);
+    font-weight: bold;
+    cursor:pointer;
+}
+p {
+    display: block;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar-button {
+    background-color: rgba(0, 0, 0, 0);
+}
+.bookHeadline {
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.bookDescription {
+    font-size: 10pt;
+}
+
+.main{
+    width:100%;
+    height:100%;
+}
+.top {
+    text-align:center;
+    height:5.2rem;
+    width:100%;
+}
+.top_content {
+    margin:0 auto;
+    height:90%;
+    width:80%;
+}
+.content{
+    height:75%;
+    width:100%;
+    background: url("/static/img/bg.png") no-repeat;
+    background-size:100% 100%;
+}
+.content_box{
+   padding-top: 4%;
+}
+.bottom{
+    text-align:center;
+    min-height:6%;
+    width:100%;
+    font-size: 0.5rem;
+    top:0px;
+}
+.left {
+    height:80%;
+    width:30%;
+    float:left;
+}
+.right {
+    height:80%;
+    width:70%;
+    float:left;
+    text-align: center;
+}
+.right_content
+{
+    width:80%;
+    height:85%;
+    transform: translate(7%, 0rem);
+    -ms-transform: translate(7%,0rem);
+    -webkit-transform: translate(7%,0rem);
+    -o-transform: translate(7%,0rem);
+    -moz-transform: translate(7%,0rem);
+}
+.search_border{
+    float: left;
+    padding:1px;
+    width:78%;
+    height:1.5rem;
+    border: 2px solid #999999;
+    -moz-border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    border-radius:0.5rem;
+}
+.search{
+    width:62.5%;
+    float:left;
+    transform: translate(27%, 100%);
+    -ms-transform: translate(27%,100%);
+    -webkit-transform: translate(27%,100%);
+    -o-transform: translate(27%,100%);
+    -moz-transform: translate(27%,100%);
+}
+
+.search_input{
+    width:95%;
+    height:1.5rem;
+    border:0px;
+    color:#999999;
+    font-size: 0.8rem;
+}
+.search_button{
+    font-weight: normal;
+    float: left;
+    width:14.5%;
+    height:35%;
+    color:#fff;
+    font-size: 0.8rem;
+    background-color: #349ddf;
+    border: 2px solid #349ddf;
+    -moz-border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    border-radius:0.5rem;
+    margin-left: 3%;
+}
+.search_button:active
+{
+    font-weight: normal;
+    float: left;
+    width:14.5%;
+    height:35%;
+    color:#349ddf;
+    font-size: 0.8rem;
+    background-color: #ffffff;
+    border: 2px solid #349ddf;
+    -moz-border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    border-radius:0.5rem;
+    margin-left: 3%;
+}
+.search_button span {
+ line-height: 1.7rem;
+}
+
+.two_d_code_area{
+    float:right;
+    transform: translate(-90%, 25%);
+    -ms-transform: translate(-90%, 25%);
+    -webkit-transform: translate(-90%, 25%);
+    -o-transform: translate(-90%, 25%);
+    -moz-transform: translate(-90%, 25%);
+}
+.two_d_code_area > span{
+    font-family: "PingFang SC";
+    display: block;
+    font-size: 0.53rem;
+}
+.qrcode-canvas
+{
+    border: 1px solid #000000;
+    padding:2px;
+}
+
+.history-listbox {
+    width: 100%;
+    height: 88.7%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-left: 10%;
+}
+.history-listbox > ul{
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 5%;
+}
+.history-listbox > ul > li {
+    width:90%;
+    height:46.7%;
+    background-color: #ffffff;
+    border-radius:0.5rem;
+    margin-bottom: 4%;
+}
+.history-listbox > ul > li > a{
+}
+.history-listbox > ul > li > a > span{
+    width:100%;
+    height:20%;
+    display:block;                     /*内联对象需加*/
+    padding-left: 3%;
+    line-height: 1.33rem;
+    word-break:keep-all;           /* 不换行 */
+    white-space:nowrap;          /* 不换行 */
+    overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;         /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+}
+
+.main_chart
+ {
+    width:100%;height:100%;
+ }
+.main_chart_box > .main_chart
+{
+    width:95%;
+    height:70%;
+    display: none;
+    transform: translate(3%, 0rem);
+    -ms-transform: translate(3%,0rem);
+    -webkit-transform: translate(3%,0rem);
+    -o-transform: translate(3%,0rem);
+    -moz-transform: translate(3%,0rem);
+}
+.right_box
+{
+    text-align: center;
+    position: absolute;
+    top:5%;
+    left:18%;
+    display: none;
+    width:62.4%;
+    height:86%;
+    background-color: #ffffff;
+    border: 1px solid #4d4d4d;
+    border-radius:0.5rem;
+    z-index:999;
+}
+#bg{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index:998;
+    -moz-opacity: 0.7;
+    opacity:.70;  filter: alpha(opacity=70);
+}
+.right_box_content{
+    width:95%;
+    height:85%;
+    overflow:auto;
+    transform: translate(2%, 0rem);
+    -ms-transform: translate(2%,0rem);
+    -webkit-transform: translate(2%,0rem);
+    -o-transform: translate(2%,0rem);
+    -moz-transform: translate(2%,0rem);
+}
+.chart_box
+{
+    margin-bottom: 1%;
+    margin-top: 3%;
+    width:100%;
+    height:42%;
+    display: block;
+    float: left;
+}
+.chart_box_min
+{
+    margin-bottom: 1%;
+    margin-top: 3%;
+    width:50%;
+    height:42%;
+    display: block;
+    float: left;
+}
+.history_img
+{
+    width:100%;
+    height:80%;
+}
+.history_img_box
+{
+    width:100%;
+    height:100%;
+    background-color: #ffffff;
+    border-radius:0.5rem;
+    display: none;
+}
+.main_chart_box
+{
+    width:100%;
+    height:100%;
+    background-color: #ffffff;
+    border-radius:0.5rem;
+    display: none;
+}
+.history_img_box > p
+{
+    text-align: center;
+}
+.history_img_box > p >  span
+{
+    font-family: "PingFang SC";
+    font-weight: bold;
+    padding-top: 2%;
+    font-size: 0.8rem;
+    color:rgb(51,51,51);
+    width:100%;
+    display:block;                     /*内联对象需加*/
+    word-break:keep-all;           /* 不换行 */
+    white-space:nowrap;          /* 不换行 */
+    overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;         /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+}
+.history_img_box > p > img
+{
+    width:95%;
+    height:82%;
+}
+
+.right_title > p >  span
+{
+    font-family: "PingFang SC";
+    font-weight: bold;
+    padding-top: 2%;
+    font-size: 0.8rem;
+    color:rgb(51,51,51);
+    width:100%;
+    display:block;                     /*内联对象需加*/
+    word-break:keep-all;           /* 不换行 */
+    white-space:nowrap;          /* 不换行 */
+    overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;         /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+}
+.main_chart_title_box
+{
+    width: 100%;
+    height: 8.9%;
+    background-color: #349ddf;
+    border-top-left-radius:0.5rem;
+    border-top-right-radius:0.5rem;
+}
+.main_chart_close
+{
+    float: left;
+    width:5%;
+    height: 100%;
+}
+.main_chart_close img
+{
+    width:1.1rem;
+    height:1.1rem;
+    margin-top:25%;
+}
+.main_chart_title
+{
+    width:93%;
+    height: 100%;
+    float: left;
+}
+.main_chart_title span
+{
+    width:100%;
+    font-size: 0.8rem;
+    line-height: 1.9rem;
+    font-family: bold;
+    color:#ffffff;
+    float: left;
 }
