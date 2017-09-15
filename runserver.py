@@ -19,4 +19,4 @@ apple.register_blueprint(controllers)  # 注册controller蓝图，并没有指�
 
 
 if __name__ == '__main__':
-    apple.run(host='127.0.0.1', port=5000, debug=True)  # 运行flask http程序，host指定监听IP，port指定监听端口，调试时需要开启debug模式。
+    apple.run(host='192.168.30.44', port=5000, debug=True)  # 运行flask http程序，host指定监听IP，port指定监听端口，调试时需要开启debug模式。
